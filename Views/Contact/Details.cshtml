@@ -1,0 +1,26 @@
+﻿@using Demo_ASP_FirstTry.App.Models.Form
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ContactForm
+
+
+<h1>Detail Contact Form</h1>
+
+<div style="padding: 10px; display: flex; justify-content: space-between; border: 1px solid black">
+    
+    <p>@Model.Id</p>
+    <p>@Model.Nom</p>
+    <p>@Model.Prenom</p>
+    <p>@Model.Email</p>
+    <p>@Model.Raison</p>
+    <p>@Model.Message</p>
+    <form method="post">
+        <input type="hidden", name="Id", value="@Model.Id" />
+        @* <input type="checkbox" name="Traiter" value="true" @(Model.Traiter == true? "checked": "") onchange="this.form.submit()"/>
+        <input type="hidden" name="Traiter" value="false" /> *@
+        <input asp-for="Traiter" onchange="this.form.submit()" />
+        @* <button type="submit">Submit</button> *@
+    </form>
+    <p>Done : @Model.Traiter</p>
+</div>

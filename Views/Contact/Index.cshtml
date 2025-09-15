@@ -1,0 +1,25 @@
+﻿@using Demo_ASP_FirstTry.App.Models.Form
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@model List<ContactFormDTO>
+
+<h1>TEST</h1>
+
+<div>
+    @foreach (ContactFormDTO FormRequest in Model)
+    {
+        <div 
+            style="padding: 10px; display: flex; justify-content: space-between; border: 1px solid black"  
+            onclick="location.href='@Url.Action("details","contact", new {id = FormRequest.Id})'">
+            <p>@FormRequest.Id</p>
+            <p>@FormRequest.Raison</p>
+            <p>@FormRequest.Message</p>
+            <p>Done : @FormRequest.Traiter</p>
+            @* <a href="~/contact/details/@FormRequest.Id">Details</a> *@
+        </div>
+    }
+</div>
+
